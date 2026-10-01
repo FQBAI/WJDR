@@ -1,26 +1,33 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {},
-    "FindSmallestNumber": {
-        "recognition": "Custom",
-        "custom_recognition": "find_smallest_number",
-        "custom_recognition_param": {
-            "candidate_rois": [
-                [100, 100, 200, 100],
-                [300, 100, 200, 100]
-            ]
-        },
-        "action": "Custom",
-        "custom_action": "click_target",
-        "custom_action_param": {
-            "target": [10, 20]
-        }
+    "点击存储": {
+        "recognition": "OCR",
+        "expected": "存储",
+        "action": "Click",
+        "next": [
+            "向下滑动"
+        ]
     },
-    "RecognizeNumber": {
-        "recognition": "OCR"
+    "向下滑动": {
+        "action": "Swipe",
+        "begin": [
+            100,
+            500,
+            10,
+            10
+        ],
+        "end": [
+            100,
+            100,
+            10,
+            10
+        ],
+        "next": [
+            "点击游戏"
+        ]
     },
-    "OcrTask": {
-        "recognition": "OCR"
+    "点击游戏": {
+        "recognition": "TemplateMatch",
+        "template": "游戏图标.png",
+        "action": "Click"
     }
 }
